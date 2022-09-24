@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv/config');
+
+app.use(bodyParser.json());
 
 //Routes
 const postRoute = require("./routes/post");
-
 app.use('/posts',postRoute);
+
 
 app.get('/',(req,res)=>{
     res.send("Home Page");
