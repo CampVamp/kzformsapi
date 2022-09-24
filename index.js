@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-require('dotenv/config');
+if(process.env.NODE_ENV=="dev"){
+    require('dotenv/config');
+}
 
 app.use(bodyParser.json());
 
